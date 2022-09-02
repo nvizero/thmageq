@@ -1,0 +1,59 @@
+<%=render '/home/comm/top'%>
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+<% end  %>
+
+<!-- mainArea -->
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <% if @p == 2 %>
+                <h2 class="title"><%=t("MagnetApplication2")%></h2>
+            <% else  %>
+                <h2 class="title"><%=t("MagnetApplication")%></h2>
+            <% end %>
+            <p> </p>
+        </div>
+        <!-- ProBox -->
+        <div class="ProBox row">
+            <!-- ProItem 1 -->
+            <% @cates.each do |cate|%>
+            <div class="col-sm-6 ProItem">
+                <a href="/product_ms?cate_id=<%=cate.id%>">
+                    <div class="row">
+                        <div class="Img col-md-4">
+                            <%= image_tag cate.img.url,{:style =>"width:100%"}  if !cate.img.nil? %>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="Txt">
+                                <h3>    
+                                    <% if session[:locale] == "en" %>
+                                      <%= cate.name_en%>
+                                    <% elsif session[:locale] == "zh-TW" %>
+                                      <%= cate.name%>
+                                    <% end %>
+                                </h3>
+                                <p class="JQellipsis">
+                                    <% if session[:locale] == "en" %>
+                                      <%= get_str cate.content_en,250 %>
+                                    <% elsif session[:locale] == "zh-TW" %>
+                                      <%= get_str cate.content,100 %>
+                                  <% end %>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </a>
+            </div>
+            <% end %>
+            <!-- ProItem 1 end-->
+            
+
+        </div>
+        <!-- ProBox end-->
+    </div>
+</div>
+<!-- mainArea ens-->

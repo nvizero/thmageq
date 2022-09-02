@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @activity.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @activity.time %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @activity.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @activity.content %>
+</p>
+
+<p>
+  <strong>Limit user:</strong>
+  <%= @activity.limit_user %>
+</p>
+
+<p>
+  <strong>Other table name:</strong>
+  <%= @activity.other_table_name %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

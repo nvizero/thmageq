@@ -1,0 +1,101 @@
+zh-TW:
+  TAIHAN: 泰翰實業有限公司
+  companyCopyright: Copyright © 泰翰實業有限公司 版權所有 .
+  TAIHAN2: 泰翰實業有限公司
+  TAIHAN_address: 302 新竹縣竹北市興隆路三段61號
+  TAIHAN_address_main: 總公司：104 台北市中山區新生北路三段88巷44號
+  TAIHAN_address1: 302 新竹縣竹北市興隆路三段61號
+  TAIHAN_address_main1: 總公司：104 台北市中山區新生北路三段88巷44號
+  products: 事業體
+  products_1: 磁性金屬分離器 
+  products_2: 永久磁鐵
+  products_3: 半導體
+  products_4: 磁性金屬分離器
+  html_title: 勵傑國際智慧財產權事務所
+  hello_world: 哈囉
+  solutions: 應用領域
+  date: 日期
+  title: 標題
+  name: 姓名
+  gender: 性別
+  female: 女
+  male: 男
+  phone: 電話
+  address: 住址
+  Address: 住址
+  email: 電子郵件
+  birthday: 生日
+  submit: 確定送出
+  clean: 清除重填
+  file_name: 檔案名稱
+  file_date: 檔案上傳日期
+  company: 公司名稱
+  safety_advice: 安全建議
+  When using permanent magnets: 使用永久磁鐵時，請注意以下安全警告。
+  language: 語言
+  contact_person: 聯絡人
+  ask: 詢問內容
+  user_content: 備註
+  key_word: "輸入關鍵字"
+  index: 首頁
+  about: 關於我們
+  service: 服務項目
+  news: 最新消息
+  signup: 線上報名
+  class_list: 線上報名
+  download: 檔案下載
+  contactus: 聯絡我們
+  deadline: 截止日期
+  Message: 內容
+  number_of_applicants: 可報名人數
+  already_of_applicants: 己報名人數
+  search: 搜尋
+  deadline_for_registration: 截止報名
+  SearchforT: 泰翰產品
+  SearchforS: 泰翰解決方案
+  WhyChooseUs: 為什麼選擇我們？
+  MagnetApplication: 磁性金屬分離器的應用領域
+  MagnetApplication2: 半導體產品與服務 
+  ApplicationMarketofMagneticSeparator1: 磁性金屬分離器的應用領域
+  ApplicationMarketofMagneticSeparator2: 半導體領域應用技術
+  OurMagneticSeparators: 碳化矽具有高飽和電子速度(2倍於矽材料)、高擊穿電壓(10倍於矽)、寬帶隙(3倍於矽)及高熔點(2倍於矽)的優點可應用於電動車、 5G、高開關頻率、低功耗、高效率、較小的散熱及在高溫高壓下穩定運行。氮化鎵 可以提供更高的效率，在任何電壓範圍內的功率轉換損耗最低，可以更高的頻率工作且器件(於矽基板上) 比碳化矽便宜，可應用於快速充電器、UPS、面向電動摩托車、5G基站、電動汽車市場的GaN功率器件及5G RF 市場的GaN外延晶片。
+  PurifyyourProducts: “淨化您的產品並保護機械”
+  Online Consultation: 線上諮詢
+  Tel: 電話
+  Fax: 傳真
+  Email: 電子郵件
+  SEND: 送出
+  20 years experience and knowledge: 20年的經驗和知識
+  Thi Han was built by a team: 泰翰團隊擁有超過20年磁性材料經驗和產品管理經驗。
+  Senior consultants: 資深顧問
+  The team includes senior consultants: 資深顧問能從學術和實務角度為全球客戶提供專業技術解決方案。
+  Substantial technological core: 經驗豐富的核心技術
+  Our substantial technological core: 雄厚的核心技術,具備創新和專業能力的專業團隊提供了持續發展實力。
+  Magnetic application techniques: 磁性應用技術
+  Customized production: 客製化生產
+  While actively expanding our: 在積極擴展我們的磁鐵相關產品以滿足全球客戶需求的同時,我們的研發團隊同時展限專業技術,不斷研發磁性應用技術,並成功開發出一系列高品質的金屬分離器,能供應塑料,回收,食品和飲料等各個行業的需求。
+  Moreover, with vast experiences: 憑藉豐富的經驗,我們的工程部門為各行業的不同生產線設計客製化的除鐵器,與客戶合作無間,讓產品達到最高效能的應用。
+
+  Agent: 獨家代理
+  Magnetic Equipment: 磁性設備
+  Coolant Filtration System: 冷卻液過濾系統
+  Suspended Plate Magnets: 電磁起重器
+  Metal Detectors: 金屬探測器
+  Munung And Minerals Industry: 採礦和礦產業
+  Food Industry: 食品工業
+  Magnetic Separator:  磁選機
+  admin:
+    event: 活動管理
+  user:
+    signed_in: 登入成功！！
+  frontend:
+    intellectual: 關於智慧財產權
+  date1:
+    order: order
+  views:
+    pagination:
+      first: "&laquo; 第一頁"
+      last: "最後一頁 &raquo;"
+      previous: "&lsaquo; 上一頁"
+      next: "下一頁 &rsaquo;"
+      truncate: "&hellip;"

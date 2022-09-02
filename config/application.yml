@@ -1,0 +1,14 @@
+defaults: &defaults
+  app_name: "世傑國際"
+  facebook_app_id: "1277765632349277"
+  facebook_secret: "2cfc23fef84d462f98ace8da942e3c64"
+
+development:
+  <<: *defaults
+  domain: "http://horizon.annaler.com"
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

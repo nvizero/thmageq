@@ -1,0 +1,45 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name , "名稱" %>
+    <%= f.text_field :name %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :cate, "網址 " %><br>
+    <% select_list = [['首頁',1], [ '內頁',2]]%>
+    <% f.select :cate, select_list , :selected => @event.cate %>    
+    <%= f.text_field :description %>
+  </div>
+
+
+ <div class="field">
+    <%= f.label :image,  "圖片 （寬:1800PX,高:630px）" %><br>
+    <%= f.file_field :image %>
+    <% if f.object.image? %>
+      <%= image_tag f.object.image.thumb.url %>
+      <%= f.label :remove_image %>
+      <%= f.check_box :remove_image %>
+    <% end %>
+  </div>
+
+
+
+  <div class="actions">
+
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>

@@ -1,0 +1,66 @@
+<%= form_for(announce) do |f| %>
+  <% if announce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(announce.errors.count, "error") %> prohibited this announce from being saved:</h2>
+
+      <ul>
+      <% announce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" <%= 'style=display:none;' if @announce.id == 5  %>  <%=@announce.id %>  >
+    <%= f.label :title,"中文標題" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group"  <%= 'style=display:none;' if @announce.id == 5  %>  <%=@announce.id %>  >
+    <%= f.label :title_en ,"英文標題" %>
+    <%= f.text_field :title_en %>
+  </div>
+
+  
+
+  <div class="form-group" <%= 'style=display:none;' if @announce.id == 5  %>>
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>      
+    <% end %>
+  </div>
+
+  <div class="form-group"   <%= 'style=display:none;' if @announce.id == 5  %>  <%=@announce.id %>  >
+    <%= f.label :sort , "排序" %>
+    <%= f.text_field :sort , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content ,"英文內文" %>
+    <%= f.text_area :content ,class: "tinymce"  %>
+    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_en ,"中文內文"%>
+    <%= f.text_area :content_en ,class: "tinymce"  %>
+    
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+ 
+     
+    tinymce.init( 
+        force_br_newlines : true,            
+    });
+</script>
+ 
+

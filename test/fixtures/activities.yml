@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-10-19
+  time: 2016-10-19 16:52:04
+  title: MyString
+  content: MyText
+  limit_user: 1
+  other_table_name: MyString
+
+two:
+  date: 2016-10-19
+  time: 2016-10-19 16:52:04
+  title: MyString
+  content: MyText
+  limit_user: 1
+  other_table_name: MyString

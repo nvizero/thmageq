@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @footer.title %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @footer.address %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @footer.tel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @footer.email %>
+</p>
+
+<p>
+  <strong>Sub:</strong>
+  <%= @footer.sub %>
+</p>
+
+<%= link_to 'Edit', edit_footer_path(@footer) %> |
+<%= link_to 'Back', footers_path %>

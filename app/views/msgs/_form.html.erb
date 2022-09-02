@@ -1,0 +1,74 @@
+
+<%= form_for(msg) do |f| %>
+  <% if msg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(msg.errors.count, "error") %> prohibited this msg from being saved:</h2>
+
+      <ul>
+      <% msg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <style media="screen">
+    .form-group label{
+      font-size: 20px;
+    }
+  </style>
+
+  <div class="form-group">
+    <%= f.label :title , "標題-中文" %>
+    <%= f.text_field :title , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en , "標題-英文" %>
+    <%= f.text_field :title_en , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sort , "排序" %>
+    <%= f.text_field :sort , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>      
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cate_id ,"分類"%>
+    <%= f.select(:cate_id, Cate.all.map {|s| [s.name , s.id]}, { :selected => @cate_id} , class: "form-control") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content,"內容-中文" %>
+
+    <%= f.text_area :content  , class: "tinymce"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_en,"內容-英文" %>
+    <%= f.text_area :content_en ,    class: "tinymce" %>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>
+
+
+
+
+
+<script>
+     
+    tinymce.init( 
+        force_br_newlines : true,            
+    });
+</script>

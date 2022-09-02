@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("imgur","zh",{clientIDMissing:"\u8acb\u52a0\u5165config.imgurClientID\u5230\u60a8\u7684\u8a2d\u5b9a\u6a94",uploading:"\u5f35\u5716\u7247\u6b63\u5728\u4e0a\u50b3\u4e2d...",failToUpload:"\u4e0a\u50b3\u5931\u6557:",label:"\u4e0a\u50b3\u5716\u7247"});

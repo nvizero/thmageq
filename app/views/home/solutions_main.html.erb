@@ -1,0 +1,83 @@
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+<% end  %>
+
+<%=render '/home/comm/top'%>
+
+<!-- mainArea -->
+<div class="main_Area">            
+    <!-- 產業類別 industries -->
+    <section class="industries">
+        <div class="container">
+            <div class="titleBox">
+
+                <h2 class="title">
+                    <% if @tel == 1%>
+                        <%=t("ApplicationMarketofMagneticSeparator1")%>
+                    <% else %>
+                        <%=t("ApplicationMarketofMagneticSeparator2")%>                        
+                    <% end  %>
+                </h2>
+
+                    <% if @tel == 1%>                    
+                        
+                        <% if session[:locale] == "en" %>                        
+                            <p>
+                                Our Magnetic Separators are also especially used for the protection of Machinery such as Crusher, Press Mill, Hammer Mill, Pulverizers, Conveyor Belts, Pipelines, Slurries, Cement Equipment like Vertical Roller Mill, Coal Mill, Cement Mill & Sugar Equipment like Shredder, Mill House, Cane Cutter, Pumps, Pipelines and Grinders, Feeders, Screw Conveyors, Bucket Elevators, Blenders, Mixers, Spouts, Ducts, Chutes and many other valuable machinery / processing equipment that you want to protect them from tramp iron damaging.
+                            </p>                            
+                        <% elsif session[:locale] == "zh-TW" %>
+                            <p>
+                                我們的磁選機還特別用於機械的保護，如破碎機，壓力機，錘磨機，粉碎機，輸送帶，管道，漿料，水泥設備如立式輥磨機，煤磨機，水泥磨機和糖設備如粉碎機，磨機 房子，藤壺，泵，管道和研磨機，進料機，螺旋輸送機，鏟斗電梯，攪拌機，攪拌機，噴口，管道，滑槽和許多其他有價值的機械/加工設備，您希望保護他們免受流氓鐵損壞。                                                        
+                            </p>
+                        <% end %>
+                        <h4 class="highlight"><%=t("PurifyyourProducts")%></h4 class="highlight">    
+                    <% else %>
+                         <% if session[:locale] == "en" %>                        
+                            <p>
+                                <b>Silicon carbide</b> has the advantages of high saturated electron velocity (2 times that of silicon materials), high breakdown voltage (10 times of silicon), wide band gap (3 times of silicon), and high melting point (2 times of silicon). It can be used in electric vehicles. , 5G, high switching frequency, low power consumption, high efficiency, small heat dissipation and stable operation under high temperature and high pressure.<br />
+
+                                <b>GaN</b> It has the advantages of high saturated electron speed (2 times that of silicon), high breakdown voltage (10 times of silicon), wide band gap (3 times of silicon), and high melting point (2 times of silicon). It can be applied to electric vehicles and 5G. , High switching frequency, low power
+                                
+                            </p>                            
+                        <% elsif session[:locale] == "zh-TW" %>
+                            <p>
+                                <b>碳化矽</b>具有高飽和電子速度(2倍於矽材料)、高擊穿電壓(10倍於矽)、寬帶隙(3倍於矽)及高熔點(2倍於矽)的優點可應用於電動車、 5G、高開關頻率、低功耗、高效率、較小的散熱及在高溫高壓下穩定運行。<br/>
+                            </p>
+                            <p>    
+                                <b>氮化鎵</b>可以提供更高的效率，在任何電壓範圍內的功率轉換損耗最低，可以更高的頻率工作且器件(於矽基板上)比碳化矽便宜，可應用於快速充電器、UPS、面向電動摩托車、5G基站、電動汽車市場的GaN功率器件及5G RF市場的GaN外延晶片。
+                            </p>
+                        <% end %>
+                        
+                        
+                    <% end  %>
+                
+                
+            </div>
+            <div class="row ProBox_indu">
+                <% @footers.each do |footer| %>
+                <div class="col-md-3 col-sm-6 ProItem">
+                    <a href="/solutions?id=<%= footer.id %>">
+                        <div class="Img">
+                             <%= image_tag footer.img.url ,{:style => "width:100%"} %>                            
+                        </div>
+                        <div class="Txt">
+                            <h3>                                
+                                <% if session[:locale] == "en" %>
+                                    <%= footer.title_en%>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                    <%= footer.title_ch%>
+                                <% end %>
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+                 
+                 
+            </div>
+        </div>
+    </section>
+    <!-- 產業類別 industries end-->
+</div>

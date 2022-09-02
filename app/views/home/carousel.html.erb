@@ -1,0 +1,65 @@
+
+<%= content_for  :css do %>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+    <link href="/css/carousel.css" rel="stylesheet">
+<% end  %>
+
+
+<div style="margin-top: 47px;">&nbsp; </div>
+<div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      
+      <div class="carousel-inner">
+        <% 
+        e = 1
+        Event.all.each do |event|  %>  
+          
+            <% if e == 1 %>
+              <div class="carousel-item active">
+                <a href="<%=event.description %>">
+                  <img  src="<%=event.image.url %>" style="max-width: 100%;" />
+                </a>          
+              </div>  
+            <% else %>
+              <div class="carousel-item">
+                <a href="<%=event.description %>">
+                  <img  src="<%=event.image.url %>" style="max-width: 100%;" />
+                </a>  
+              </div>    
+            <% 
+            end 
+            e = e+1
+            %>  
+
+          
+        <% end   %>
+
+         
+
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>    
+    
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+$("document").ready(function(){ 
+ $('body').css('min-height', '0');
+});
+</script>	

@@ -1,0 +1,2 @@
+class RefFooterCate < ApplicationRecord
+end

@@ -1,0 +1,82 @@
+
+<a class="btn btn-success" style="color:#FFFFFF;" 
+  href="/user_create">新增使用者</a>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#id</th>
+          <th>姓名</th>
+          <th>電子郵件</th>
+          <th>等級</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%=user.id%></td>
+          <td><%=user.name%></td>
+          <td><%=user.email%></td>
+          <td><%=user.level%></td>
+          <td>
+             
+            <button type="button" id="<%=user.id%>" name="button"
+            class="btn btn-mg btn-success" >
+            <a href="/member/<%=user.id%>"  style="color:#ffffff;">修改</a></button>
+
+            <button type="button" id="<%=user.id%>" name="button"
+            class="btn btn-mg btn-danger del-btn" style="padding: 8px;font-size: 17px;" >刪除</button>
+
+            
+
+            <%= render "modal" , :uid => user.id  %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+<script type="text/javascript">
+  $("document").ready(function(){
+
+
+
+    $(".del-btn").click(function(){
+      var r = confirm("確定要刪除嗎 !? ");
+
+      if(r==true){
+
+          
+
+          $.post("/del_something",{ "id" : $(this).attr("id"),
+                                    "action_name" : "users" },function(data){
+                                      // alert(data);
+              if(data==1){
+
+                alert("刪除成功");
+                location.reload();
+
+              }else if (data==2) {
+
+              }
+          });
+
+      }else{
+
+      }
+
+
+
+
+    })
+
+
+  });
+</script>
+

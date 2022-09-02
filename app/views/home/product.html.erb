@@ -1,0 +1,89 @@
+<% if session[:locale] == "en" %>  
+  <% title( @msg.title_en   + " - " + @msg.cate.name_en + " - ") %>
+<% elsif session[:locale] == "zh-TW" %>
+  <% title( @msg.title      + " - " + @msg.cate.name + " - ") %>
+<% end %>
+
+
+  
+<%= content_for  :description do %>    
+    <% if session[:locale] == "en" %>
+        <%= get_str @msg.content_en%>
+    <% elsif session[:locale] == "zh-TW" %>
+        <%= get_str @msg.content%>
+    <% end %>
+<% end  %>
+ 
+
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/product-in.css">
+<% end  %>
+
+
+
+
+<%=render '/home/comm/top'%>
+        
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <h2 class="title">
+            	<% if session[:locale] == "en" %>
+				  <%= raw @msg.title_en%>
+				<% elsif session[:locale] == "zh-TW" %>
+				  <%= raw @msg.title%>
+				<% end %>
+            </h2>
+        </div>
+
+        <div class="row flex-row-reverse">
+            
+            <div class="col-lg-9">
+                <!-- Content -->
+                <section id="content">
+                    <div class="row">                    
+                    	<% if session[:locale] == "en" %>
+    					  <%= raw @msg.content_en%>
+    					<% elsif session[:locale] == "zh-TW" %>
+    					  <%= raw @msg.content%>
+    					<% end %>
+ 					</div>
+                </section>
+                 
+            </div>
+            <!-- 次選單 -->
+            <% msgs = Msg.where(:cate_id =>@msg.cate_id) %>
+            <div class="col-lg-3 nopadding">
+                <!-- Sidebar -->
+                <section id="sidebar">
+                    <h3>
+                        <% if session[:locale] == "en" %>
+                          <%= raw @msg.cate.name_en %>
+                        <% elsif session[:locale] == "zh-TW" %>
+                          <%= raw @msg.cate.name %>
+                        <% end %>
+                    </h3>
+                    <!-- 產品選單 -->
+                    <ul class="proList">
+                        <% msgs.each do |m| %>
+                            <li>
+                                <a href="/product?id=<%=m.id%>" class="proItem">
+                                    <% if session[:locale] == "en" %>
+                                      <%= m.title_en%>
+                                    <% elsif session[:locale] == "zh-TW" %>
+                                      <%= m.title%>
+                                    <% end %>
+                                </a>
+                            </li>
+                        <% end %>                        
+                    </ul>
+                    <!-- 產品選單 end -->
+                </section>
+            </div>
+            <!-- 次選單 end -->
+        </div>
+    </div>
+</div>
+ 

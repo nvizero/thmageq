@@ -1,0 +1,58 @@
+<% title( t("safety_advice") ) %>
+
+
+
+ 
+<%= content_for  :css do %>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+<% end  %>
+<%=render '/home/comm/top'%>
+
+<!-- mainArea -->
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <h2 class="title"><%=t('safety_advice')%></h2>
+            <h4><%=t('When using permanent magnets')%></h4>
+        </div>
+        <!-- ProBox -->
+        <div class="ProBox row">
+             <!-- ProItem 1 -->
+            <% @saves.each do |save| %>
+            <div class="col-sm-6 ProItem">                        
+                <div class="row">
+                    <div class="Img col-md-4">                        
+                        <%=image_tag save.img.url ,{:style=>"width:100%;"} if !save.img.nil?%>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="Txt">
+                            <h3>
+                                <% if session[:locale] == "en" %>
+                                  <%= save.title_en %>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                  <%= save.title %>
+                                <% end %>
+                            </h3>
+                            <p class="JQellipsis">
+                                <% if session[:locale] == "en" %>
+                                  <%= raw save.content_en%>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                  <%= raw save.content %>
+                                <% end %>
+                            </p>
+                        </div>
+                    </div>                            
+                </div>                        
+            </div>
+            <% end %>
+            <!-- ProItem 1 end-->
+            
+             
+            
+        </div>
+        <!-- ProBox end-->
+    </div>
+</div>
+<!-- mainArea ens-->
+ 

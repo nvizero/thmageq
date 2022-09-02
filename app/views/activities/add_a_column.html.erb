@@ -1,0 +1,28 @@
+
+<%= form_tag('/store_TableRef', method: :post) do %>
+
+  <style media="screen">
+    .form-group label{
+      font-size: 20px;
+    }
+  </style>
+
+    <%= hidden_field_tag :table_name ,@activity.other_table_name %>
+
+    <%= hidden_field_tag :activity_id ,@activity.id %>
+
+    <% @activity.column_num.to_i.times do |ai|
+        random_table_name = (0...8).map { (65 + rand(26)).chr }.join
+    %>
+          <div class="form-group">
+            <%= label_tag :title,"欄位名稱#{ai.to_i + 1}" %>
+            <%= text_field_tag "field[#{random_table_name}_#{ai.to_i + 1}]" , nil , class: "form-control" %>
+          </div>
+
+    <% end  %>
+
+    <div class="form-group">
+      <%=submit_tag %>
+    </div>
+
+<% end %>

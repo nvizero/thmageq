@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>標題</th>      
+          <th>圖片</th>
+          <th>內容</th>      
+          <th>排序</th>      
+          <th colspan="2"><%= link_to '新增', new_announce_path , { class: "btn btn-mg btn-success"  ,:style=>'color:#FFFFFF;'}%></th>
+        </tr>
+      </thead>
+
+  <tbody>
+    <% @announces.each do |announce| %>
+      <tr>
+        <td><%= announce.title %></td>        
+        <td><%= image_tag( announce.img , size: "60") if announce.img %></td>
+        <td><%= get_str announce.content %></td>        
+        <td><%= announce.sort %></td>        
+        <td><%= link_to '編輯', edit_announce_path(announce) ,{ :class=>"btn btn-mg btn-primary",:style=>'color:#FFFFFF;'}%></td>
+        <td><%= link_to '刪除', announce, { method: :delete, data: { confirm: 'Are you sure?' } , :class=>"btn btn-mg btn-danger" ,:style=>'color:#FFFFFF;' }  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,35 @@
+<% if !flash[:notice].blank? %>
+
+      <% flash[:notice] %>
+
+<% end %>
+
+<br />
+
+<br />
+
+<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>分類名稱</th>
+          
+         <th><%= link_to "新增分類", new_resume_path, {:style=>'color:#FFFFFF;', :class => "btn btn-primary"}  %> </th>
+      </tr>
+   </thead>
+
+   <tbody>
+      <% @resumes.each do |resume| %>
+
+         <tr>
+            <td><%= resume.name %></td>
+             
+            <td>
+             
+            <%= button_to "刪除",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %>
+            </td>
+         </tr>
+
+      <% end %>
+   </tbody>
+
+</table>

@@ -1,0 +1,65 @@
+<%=render '/home/comm/top'%>
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+<% end  %>
+
+<!-- mainArea -->
+<div class="main_Area">
+    <section>
+        <div class="container">
+            <div class="titleBox">
+                <h2 class="title"><%=t("news")%></h2>
+                <p> </p>
+            </div>
+            <!-- ProBox -->
+            <div class="ProBox row">
+                <!-- ProItem 1 -->
+                <% @annos.each do |announce| %>
+                <div class="col-sm-6 ProItem">
+                    <a href="/anno?id=<%=announce.id%>">
+                        <div class="row">
+                            <div class="Img col-md-4">
+                                <%= image_tag announce.img.url ,{:style =>"width:100%"}  if !announce.img.nil? %>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="Txt">
+                                    <h3>
+                                         
+
+                                        <% if session[:locale] == "en" %>
+                                            <%  anno_en_title = get_str announce.title_en %>
+                                            <%= anno_en_title.split(" ").to_a[0..12].join(" ")%>...
+                                        <% elsif session[:locale] == "zh-TW" %>
+                                            <%= get_str announce.title , 20 %>...
+                                        <% end %>  
+
+                                    </h3>
+                                    <p class="JQellipsis">
+                                        <% if session[:locale] == "en" %>                                 
+                                            <%  anno_en_content = get_str announce.content_en , 120 %>
+                                            <%= anno_en_content.split(" ").to_a[0..20].join(" ")%>...
+                                        <% elsif session[:locale] == "zh-TW" %>
+                                            <%= get_str announce.content ,70 %>...
+                                        <% end %>                                                
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+                <!-- ProItem 1 end-->
+                 
+            </div>
+            <!-- ProBox end-->
+            
+        </div>
+    </section>
+     
+</div>
+
+

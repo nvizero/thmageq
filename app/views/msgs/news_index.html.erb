@@ -1,0 +1,102 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            <%= sortable "id" ,'id' %>
+          </th>
+          <th>
+            <%= sortable "title" ,'標題' %>
+          </th>
+          <th>
+
+            <%= sortable "cate_id" ,'分類' %>
+          </th>
+          <th>
+            <%= sortable "sort" ,'排序' %>
+          </th>
+          <th>
+            <%= sortable "content" ,'內容' %>
+          </th>
+
+          <th colspan="2">
+            <%= link_to '新增最新消息', new_msg_path(:id => 1) ,{ class: "btn btn-success" ,:style=>'color:#FFFFFF;'} %>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @msgs.each do |msg| %>
+          <tr>
+            <td><%= msg.id %></td>
+            <td><%= msg.title %></td>
+            <td>
+              <% if msg.cate %>
+                  <%= msg.cate.name %>
+              <% end %>
+
+            </td>
+            <td><%= msg.sort %></td>
+            <td><%= get_str   msg.content %></td>
+
+            <td><%= link_to '編輯', edit_msg_path(msg)  ,{  :class=>"btn btn-primary",:style=>'color:#FFFFFF;'} %></td>
+            <td>
+
+
+              <button type="button" id="<%=msg.id%>" name="button"
+                class="btn btn-danger" >刪除</button>
+
+
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+
+</table>
+
+
+</div>
+
+
+
+    <%= paginate @msgs , :theme => 'twitter-bootstrap-3'%>
+
+
+
+<script type="text/javascript">
+  $("document").ready(function(){
+
+
+
+    $("button").click(function(){
+      var r = confirm("確定要刪除嗎 !? ");
+
+      if(r==true){
+
+          // alert(  $(this).attr("id") );
+
+          $.post("/del_something",{ "id" : $(this).attr("id"),
+                                    "action_name" : "msgs" },function(data){
+                                      // alert(data);
+              if(data==1){
+
+                alert("刪除成功");
+                location.reload();
+
+              }else if (data==2) {
+
+              }
+          });
+
+      }else{
+
+      }
+
+
+
+
+    })
+
+
+  });
+</script>

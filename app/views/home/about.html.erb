@@ -1,0 +1,84 @@
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/about.css">
+
+<%=render '/home/comm/top'%>
+
+
+
+<!-- mainArea -->
+<div class="mainArea">
+    <div class="container">
+        <section>
+            <div class="row" >
+                <div class="col-md-12 ">
+                    <% if session[:locale] == "en" %>  
+                        <%= raw @about.content %>
+                    <% elsif session[:locale] == "zh-TW" %>
+                        <%= raw @about.content_en%>
+                    <% end %>
+
+                    
+                </div>
+            </div>
+            <div class="row" style="display: none;">
+                <div class="col-md-6 ">
+                    <h2>
+                        <% if session[:locale] == "en" %>
+                            TAI HAN <span>ENTERPRISE</span> CO., LTD
+                        <% elsif session[:locale] == "zh-TW" %>
+                           泰翰實業  <br><span>有限公司</span>
+                        <% end %>  
+                    </h2>
+                    <img src="images/about/about_img01.png" width="100%" alt="">
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <img src="images/about/about_img02.png" width="90%" alt="">
+                </div>
+                <div class="content col-12 pt-3">
+                    <h4><%=t("20 years experience and knowledge")%></h4>
+                    <p><%=t("Thi Han was built by a team")%></p>
+                    <h4><%=t("Senior consultants")%></h4>
+                    <p><%=t("The team includes senior consultants")%></p>
+                    <h4><%=t("Substantial technological core")%></h4>
+                    <p><%=t("Our substantial technological core")%></p>
+                    <h4><%=t("Magnetic application techniques")%></h4>
+                    <p><%=t("While actively expanding our")%></p>
+                    <h4><%=t("Customized production")%></h4>
+                    <p><%=t("Moreover, with vast experiences")%></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="AgentBox">
+        <div class="container">
+            <div class="content" style="display:none;" >
+                <h3><span><%=t('Agent')%></span><%=t('Magnetic Equipment')%></h3>
+                <div class="row text-center">
+                    <div class="col-md-8 d-flex align-items-end flex-wrap justify-content-center">
+                        <img src="images/about/agent01.jpg" width="100%" alt="">
+                        <p><%=t('Coolant Filtration System')%></p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/about/agent02.jpg" width="100%" alt="">
+                        <p><%=t('Suspended Plate Magnets')%></p>
+                    </div>
+                    <div class="col-md-3  d-flex align-items-end flex-wrap justify-content-center">
+                        <img src="images/about/agent03.jpg"  width="100%" alt="">
+                        <p><%=t('Metal Detectors')%><br>
+                        (<%=t('Munung And Minerals Industry')%>)</p>
+                    </div>
+                    <div class="col-md-6  d-flex align-items-end flex-wrap justify-content-center">
+                        <img src="images/about/agent04.jpg"  width="100%" alt="">
+                        <p><%=t('Metal Detectors')%>(<%=t('Food Industry')%>)</p>
+                    </div>
+                    <div class="col-md-3  d-flex align-items-end flex-wrap justify-content-center">
+                        <img src="images/about/agent05.jpg"  width="100%" alt="">
+                        <p><%=t('Magnetic Separator')%></p>
+                    </div>                            
+                </div>                        
+            </div>
+        </div>
+    </section>
+</div>
+         

@@ -1,0 +1,34 @@
+ <div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+
+
+
+      <tr>
+        <th>標題</th>        
+        <th>圖片</th>
+        <th>內文</th>        
+        <th>排序</th>
+        <th colspan="3"><%= link_to 'New Safe', new_safe_path %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @saves.each do |safe| %>
+        <tr>
+          <td><%= safe.title %></td>          
+          <td><%=image_tag  safe.img.url , {:style=>"width:60px;"} if !safe.img.nil? %></td>
+          <td><%= get_str safe.content %></td>
+          
+          <td><%= safe.sort %></td>
+          
+          <td><%= link_to '編輯', edit_safe_path(safe) %></td>
+          <td><%= link_to '刪除', safe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+

@@ -1,0 +1,38 @@
+
+
+
+
+<div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>標題</th>
+      <th>排序</th>
+      <th>圖片</th>
+      <th >
+        <%= link_to '新增產業', new_footer_path , { class: "btn btn-success" ,:style=>'color:#FFFFFF;'} %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @footers.each do |footer| %>
+      <tr>
+        <td><%= footer.title_ch %></td>
+        <td><%= footer.sort %></td>
+        <td>
+          
+          <%= image_tag( footer.img , size: "70") if footer.img %>
+        </td>
+
+        <td>
+          <%= link_to '編輯', edit_footer_path(footer) ,{  :class=>"btn btn-primary",:style=>'color:#FFFFFF;'} %>
+          <%= link_to '刪除', footer, {method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn btn-danger",:style=>'color:#FFFFFF;' }%>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

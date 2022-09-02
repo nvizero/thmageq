@@ -1,0 +1,99 @@
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2L8JV5');</script>
+<!-- End Google Tag Manager -->
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2L8JV5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div class="menu-logo">
+        <!-- menu-logo -->
+        <div class="navbar-brand">
+          <!-- navbar-brand -->
+          <span class="navbar-logo">
+                        <a href="/">
+                            <img src="images/logo.png" style="height: 2.8rem;">
+                        </a>
+                    </span>
+        </div>
+        <!-- navbar-brand end-->
+
+      </div>
+      <!-- menu-logo end-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mr-auto" id="navbarTogglerDemo02">
+        <ul class="navbar-nav  mt-2 mt-lg-0">
+          <li class="nav-item ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t("products") %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: auto;">
+              <a class="dropdown-item" href="/product_main?p=2"><%= t("products_3") %></a>
+              <a class="dropdown-item" href="/product_main?p=1"><%= t("products_1") %></a>
+              <a class="dropdown-item" href="http://www.taihanmag.com/"><%= t("products_2") %></a>
+            </div>
+          </li>
+          <li class="nav-item ">            
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t("solutions") %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="left: auto;">              
+              <a class="dropdown-item" href="/solutions_main?tel=2"><%= t("products_3") %></a>      
+              <a class="dropdown-item" href="/solutions_main?tel=1"><%= t("products_4") %></a>        
+            </div>
+
+
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/safety_advice"><%= t("safety_advice") %></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/annos"><%= t("news") %></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/contact"><%= t("contactus") %></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/about"><%= t("about") %></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t("language") %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "English", {:controller => "home", :action => 'about', :locale => "en"}, :class => "dropdown-item" %>
+              <%= link_to "繁體中文", {:controller => "home", :action => 'about', :locale => "zh-TW"}, :class => "dropdown-item" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+<style>
+
+  @media screen and (max-width: 600px) {
+    .navbar-nav {
+      # background-color: red;
+    }
+  }
+
+
+</style>

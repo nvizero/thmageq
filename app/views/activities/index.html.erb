@@ -1,0 +1,117 @@
+
+
+
+<% link_to "Excel", excel_path(format: "csv") %>
+<% link_to "xls", excel_path(format: "xls") %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+
+  <thead>
+    <tr>
+       
+      <th>
+        <%= sortable "title" ,'名稱' %>
+      </th>
+      <th>
+        <% sortable "content" ,'活動名稱' %>
+      </th>
+      <th>
+        <% sortable "limit_user" ,'限制人數' %>
+      </th>
+
+      <th colspan="2"><%= link_to '新增', new_activity_path  ,class: "btn btn-success"  %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.date %></td>
+        <td><%= activity.time.to_s.split(" ")[1] %></td>
+        <td><%= activity.title %></td>
+        <td><%= get_str activity.content %></td>
+         
+
+
+        </td>
+
+        <td>
+
+
+          <%
+          # if activity.column_num > 0
+
+            t_exist = join_other_table_ok( activity.other_table_name)
+            %>
+            <% t_exist[0].to_s.length.to_i  %>
+            <% activity.other_table_name%>
+            <%
+              if t_exist[0].to_s.length.to_i < 2
+              %>            
+
+              <% else %>
+                <%= link_to '編輯', edit_activity_path(activity) , class: "btn btn-default btn-xs",style: "font-color:#FFF" %>
+                <a href="/activities_detial/<%=activity.id%>"
+                  class="btn btn-primary btn-xs"
+                  style="color:#FFF;display:none;" >報名活動人員列表</a>
+
+                  <% link_to "匯出EXECL", {controller: "activities", action: "excel", id: activity.id ,format: "xls"  }, class: "btn btn-success btn-xs" %>
+              <%
+              end
+
+            # else
+              %>
+
+
+
+                <button type="button" id="<%=activity.id%>" name="button"
+                  class="btn btn-danger btn-xs" >刪除</button>
+              </td>
+
+
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @activities , :theme => 'twitter-bootstrap-3'%>
+
+</div>
+
+
+
+<script type="text/javascript">
+  $("document").ready(function(){
+
+
+
+    $("button").click(function(){
+      var r = confirm("確定要刪除嗎 !? ");
+
+      if(r==true){
+
+          // alert(  $(this).attr("id") );
+
+          $.get("/del_activities",{ "id" : $(this).attr("id") },function(data){
+                                      
+                alert("刪除成功");
+                location.reload();
+
+
+          });
+
+      }else{
+
+      }
+
+
+
+
+    })
+
+
+  });
+</script>

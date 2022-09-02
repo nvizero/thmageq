@@ -1,0 +1,123 @@
+
+
+.ProItem .Txt{
+color: #333;
+}
+.ProBox .ProItem{
+padding-top: 2%;
+height: 200px;
+position: relative;
+overflow: hidden;
+
+}
+.ProItem .Img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ProBox .ProItem .Txt{
+	height: 100%;
+overflow: hidden;
+/*white-space:nowrap;*/
+text-overflow:ellipsis;
+}
+.ProBox .ProItem .Txt h3{
+	font-size: 1.5rem;
+	/*overflow: hidden;*/
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.ProBox .ProItem .Txt p{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+
+.ProBox .ProItem:after{
+content: '';
+width: 95%;
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+height: 1px;
+background-color: #9b2024;
+margin: 0 auto;
+}
+.ProBox .ProItem+.ProItem{
+border-left: 1px solid #9b2024;
+}
+.ProBox .ProItem:nth-child(odd){
+border-left:none;
+}
+
+/*產業區*/
+
+.industries{
+    background-color: #eee;
+}
+
+.industries .ProBox_indu .ProItem{
+margin-bottom: 3%;
+}
+.industries .ProBox_indu .ProItem .Txt{
+text-align: center;
+transition: all 2s;
+color: #333;
+}
+.industries .ProBox_indu .ProItem .Txt:after{
+content: '';
+width: 0%;
+display: block;
+height: 1px;
+background-color:  #9b2024;
+margin: 10px auto;
+transition: all 0.3s;
+}
+.industries .ProBox_indu .ProItem .Txt h3{
+font-size: 1.4rem;
+padding-top: 1rem;
+}
+.industries .ProBox_indu .ProItem:hover .Txt:after{
+content: '';
+width: 90%;
+display: block;
+height: 1px;
+background-color:  #9b2024;
+margin: 10px auto;
+}
+.industries .ProBox_indu .ProItem+.ProItem{
+border-left: 1px solid #9b2024;
+}
+.industries .ProBox_indu .ProItem:nth-child(5),
+.industries .ProBox_indu .ProItem:nth-child(9),
+.industries .ProBox_indu .ProItem:nth-child(13),
+.industries .ProBox_indu .ProItem:nth-child(17),
+.industries .ProBox_indu .ProItem:nth-child(21){
+border-left: none;
+}
+
+
+
+
+/*產業區end*/
+
+@media(max-width: 575px){
+	.ProBox .ProItem+.ProItem{
+border-left: none;
+}
+}
+@media(max-width: 768px){
+	.ProBox .ProItem{
+height: auto;
+}
+.industries  .ProBox_indu .ProItem+.ProItem {
+    border-left:none;
+}
+
+}

@@ -1,0 +1,86 @@
+
+
+<div class="table-responsive">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>排序</th>
+      <th>圖片</th>
+      <th>
+        
+        <%if @p.to_i == 1%>
+          <a href="cates/new?p=<%=@p %>">新增除鐵器分類</a>  
+        <% else %>
+          <a href="cates/new?p=<%=@p %>">新增半導體分類</a>  
+        <% end %>
+
+      <% link_to '新增產品分類', new_cate_path , { class: "btn btn-mg btn-success"  ,:style=>'color:#FFFFFF;',:p=>@p} %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cates.each do |cate| %>
+      <tr>
+        <td><%= cate.name %></td>
+        <td><%= cate.level %></td>
+        <td><%= image_tag( cate.img , size: "60") if cate.img %></td>
+        <td>
+
+          <%= link_to '編輯', edit_cate_path(:id=>cate.id)  ,{ :class=>"btn btn-mg btn-primary",:style=>'color:#FFFFFF;'} %>
+          <%= link_to '新增產品', new_msg_path(:cate_id=>cate.id ) , {class: "btn btn-mg btn-info" ,:style=>'color:#FFFFFF;'} %>
+        
+          <button type="button" id="<%=cate.id%>" name="button"
+            class="btn btn-mg btn-danger" >刪除</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+    <%= paginate @cates , :theme => 'twitter-bootstrap-3'%>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+  $("document").ready(function(){
+
+
+
+    $("button").click(function(){
+      var r = confirm("確定要刪除嗎 !? ");
+
+      if(r==true){
+
+          // alert(  $(this).attr("id") );
+
+          $.post("/del_something",{ "id" : $(this).attr("id"),
+                                    "action_name" : "cates" },function(data){
+                                      // alert(data);
+              if(data==1){
+
+                alert("刪除成功");
+                location.reload();
+
+              }else if (data==2) {
+
+              }
+          });
+
+      }else{
+
+      }
+
+
+
+
+    })
+
+
+  });
+</script>

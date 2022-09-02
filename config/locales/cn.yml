@@ -1,0 +1,95 @@
+cn:
+  TAIHAN: 泰翰实业有限公司
+  companyCopyright: Copyright © 泰翰实业有限公司 版权所有 .
+  TAIHAN2: 泰翰实业有限公司
+  TAIHAN_address: 新竹办事处：302 新竹县竹北市兴隆路三段61号
+  TAIHAN_address_main: 总公司：104 台北市中山区新生北路三段88巷44号
+  TAIHAN_address1: 新竹办事处：302 新竹县竹北市兴隆路三段61号
+  TAIHAN_address_main1: 总公司：104 台北市中山区新生北路三段88巷44号
+  products: 产品
+  html_title: 励杰国际智慧财产权事务所
+  hello_world: 哈囉
+  solutions: 产业
+  date: 日期
+  title: 标题
+  name: 姓名
+  gender: 性别
+  female: 女
+  male: 男
+  phone: 电话
+  address: 住址
+  Address: 住址
+  email: 电子邮件
+  birthday: 生日
+  submit: 确定送出
+  clean: 清除重填
+  file_name: 档案名称
+  file_date: 档案上传日期
+  company: 公司名称
+  safety_advice: 安全建议
+  When using permanent magnets: 使用永久磁铁时，请注意以下安全警告。
+  language: 语言
+  contact_person: 联络人
+  ask: 询问内容
+  user_content: 备注
+  key_word: "输入关键字"
+  index: 首页
+  about: 关于我们
+  service: 服务项目
+  news: 最新消息
+  signup: 线上报名
+  class_list: 线上报名
+  download: 档案下载
+  contactus: 联络我们
+  deadline: 截止日期
+  Message: 内容
+  number_of_applicants: 可报名人数
+  already_of_applicants: 己报名人数
+  search: 搜寻
+  deadline_for_registration: 截止报名
+  SearchforT: 泰翰产品
+  SearchforS: 泰翰解决方案
+  WhyChooseUs: 为什麽选择我们？
+  MagnetApplication: 永磁除铁器应用
+  ApplicationMarketofMagneticSeparator: 除铁器的应用市场
+  OurMagneticSeparators: 我们的磁选机还特别用于机械的保护，如破碎机，压力机，锤磨机，粉碎机，输送带，管道，浆料，水泥设备如立式辊磨机，煤磨机，水泥磨机和糖设备如粉碎机，磨机 房子，藤壶，泵，管道和研磨机，进料机，螺旋输送机，铲斗电梯，搅拌机，搅拌机，喷口，管道，滑槽和许多其他有价值的机械/加工设备，您希望保护他们免受流氓铁损坏。
+  PurifyyourProducts: “淨化您的产品并保护机械”
+  Online Consultation: 线上谘询
+  Tel: 电话
+  Fax: 传真
+  Email: 电子邮件
+  SEND: 送出
+  20 years experience and knowledge: 20年的经验和知识
+  Thi Han was built by a team: 泰翰团队拥有超过20年磁性材料经验和产品管理经验。
+  Senior consultants: 资深顾问
+  The team includes senior consultants: 资深顾问能从学术和实务角度为全球客户提供专业技术解决方案。
+  Substantial technological core: 经验丰富的核心技术
+  Our substantial technological core: 雄厚的核心技术,具备创新和专业能力的专业团队提供了持续发展实力。
+  Magnetic application techniques: 磁性应用技术
+  Customized production: 客製化生产
+  While actively expanding our: 在积极扩展我们的磁铁相关产品以满足全球客户需求的同时,我们的研发团队同时展限专业技术,不断研发磁性应用技术,并成功开发出一系列高品质的金属分离器,能供应塑料,回收,食品和饮料等各个行业的需求。
+  Moreover, with vast experiences: 凭藉丰富的经验,我们的工程部门为各行业的不同生产线设计客製化的除铁器,与客户合作无间,让产品达到最高效能的应用。
+
+  Agent: 独家代理
+  Magnetic Equipment: 磁性设备
+  Coolant Filtration System: 冷却液过滤系统
+  Suspended Plate Magnets: 电磁起重器
+  Metal Detectors: 金属探测器
+  Munung And Minerals Industry: 採矿和矿产业
+  Food Industry: 食品工业
+  Magnetic Separator:  磁选机
+  admin:
+    event: 活动管理
+  user:
+    signed_in: 登入成功！！
+  frontend:
+    intellectual: 关于智慧财产权
+  date1:
+    order: order
+  views:
+    pagination:
+      first: "&laquo; 第一页"
+      last: "最后一页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "&hellip;"

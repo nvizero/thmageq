@@ -1,0 +1,11 @@
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item <%=@active_flag =="index"? "active":"" %>" href="/"><%=@footer.title_en%></a>
+
+          <% @cates.each do |cate| %>
+            <a class="blog-nav-item <%=@active_flag.to_i == cate.id.to_i ? "active":"" %>" href="/news/<%=cate.id%>"><%=cate.name%></a>
+          <% end %>        	
+        </nav>        
+    </div>
+</div>

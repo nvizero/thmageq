@@ -1,0 +1,99 @@
+
+<%= form_for(activity) do |f| %>
+<% if activity.errors.any? %>
+
+  <div id="error_explanation">
+
+    <h2><%= pluralize(activity.errors.count, "error") %>以下為必填，或是格式不符合</h2>
+
+    <ul>
+    <% activity.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+
+<% end %>
+
+  <style media="screen">
+    .form-group label{
+      font-size: 20px;
+    }
+  </style>
+
+  <div class="form-group"  style="display: none;">
+    <%= f.label :date , "日期" %>  <font style="color:red;margin-left:30px;">請使用日期格式 , 例如 : 2016-01-01</font>
+    <%= f.text_field :date , class: "form-control date" ,id: "datepicker1" %>
+  </div>
+
+  <div class="form-group"  style="display: none;">
+    <%= f.label :time ,"時間"%>
+    <%= f.time_select :time , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title,"名稱-中文" %>
+    <%= f.text_field :title , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en,"名稱-英文" %>
+    <%= f.text_field :title_en , class: "form-control"%>
+  </div>
+
+    <div class="form-group">
+      分類      
+      <select class="form-control" name="activity[other_table_name]">
+        <% Product.all.each do |p| %>            
+          <option value="<%=p.id%>"><%=p.name %></option>          
+        <% end  %>  
+      </select>  
+
+ 
+    </div>
+  <br />
+  <div class="form-group">
+    <%= f.label :content ,"內容-中文"%>
+    <%= f.text_area :content ,  class: "tinymce"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_en ,"內容-英文"%>
+    <%= f.text_area :content_en , class: "form-control tinymce" ,id: "ckeditor"%>
+  </div>
+
+  <div class="form-group" style="display: none;">
+    <%= f.label :limit_user,"人數上限" %>
+    <%= f.number_field :limit_user, class: "form-control" %>
+  </div>
+
+
+   
+  <div class="form-group"  style="display: none;">
+    <%= f.label :column_num , "額外欄位數目(個)" %>
+    <%= f.number_field :column_num , class: "form-control"%>
+  </div>
+   
+
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+
+ init({
+        selector: '.tinymce',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            ' bold italic backcolor | alignleft aligncenter ' +
+            ' alignright alignjustify | bullist numlist outdent indent | ' +
+            ' removeformat | help'
+    });
+</script>

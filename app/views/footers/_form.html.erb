@@ -1,0 +1,182 @@
+<%= content_for  :css do %>
+  <link href="/multi/jquery.multiselect.css" rel="stylesheet" />
+<% end  %>
+
+<%=content_for  :js do %>
+  <script src="/multi/jquery.multiselect.js"></script>
+
+  <script>
+    $(function () {
+        $('select[multiple].active.3col').multiselect({
+            columns: 3,
+            placeholder: 'Select States',
+            search: true,
+            searchOptions: {
+                'default': 'Search States'
+            },
+            selectAll: true
+        });
+
+    });
+  </script>
+
+
+
+<script>
+  jQuery(function($){
+    CKEDITOR.replace('ckeditor');
+  });
+</script>
+
+
+<% end  %>
+
+
+
+<%= form_for(footer) do |f| %>
+
+  <% if footer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(footer.errors.count, "error") %> prohibited this footer from being saved:</h2>
+
+      <ul>
+      <% footer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :title_en ,"英文-標題" %>
+
+    <%= f.text_field :title_en , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+
+    <%= f.label :title_ch ,"中文-標題" %>
+
+    <%= f.text_field :title_ch , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sort ,"排序" %>
+    <%= f.text_field :sort, class: "form-control"  %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>
+      <%= f.label :remove_img %>
+      <%= f.check_box :remove_img %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel, "分類" %><br>
+    <% select_list = [['除鐵器',1], [ '半導體',2]]%>    
+    <%=f.select :tel, select_list, :selected => @footer.tel   %>    
+    
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :content_en,"內容-英文" %>
+    <%= f.text_area :content_en , class: "tinymce" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_ch,"內容-中文" %>
+    <%= f.text_area :content_ch , class: "tinymce" %>
+  </div>
+  <% if @footer.msgs  %>
+  <div class="form-group">
+    <%= f.label :content_ch,"己選取" %>
+
+    <%  @footer.msgs.each do |msg| %>
+    <div>
+      <font color="blue"><%=msg.title%></font>-<%=msg.title_en%>
+    </div>
+    <% end %>
+
+  </div>
+  <% end %>
+
+
+  <div class="form-group">    
+        <b style="color:red;">
+          <%= f.label :content_en,"對應的產品" %>
+          (請先選擇類別再選擇產品)    
+        </b>
+        <br>
+        <% Cate.all.each do | cate |%> 
+          <span style="margin:0px 8px 0px 0px; ">
+              <input  value="<%=cate.id %>"  type="checkbox" name="n[]" data-id="<%=cate.id %>" >
+              <%=cate.name %>
+          </span>
+        <% end %>
+
+        <div class="show_product_list"></div>
+    
+  </div>
+
+  
+
+  <div class="form-group" style="height: 20px">
+    <br>
+    <br>
+  </div>
+
+  <div class="form-group submit">
+
+    <button class="btn btn-lg btn-primary" type="submit" >確定</button>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+$(document).ready( function(){
+   
+   $(".form-group input[type=checkbox]").bind('click',function(){
+
+      var ids = '';
+      $(".form-group input[type=checkbox]").each(function(){
+          if($(this).prop("checked")){
+            ids += $(this).attr('data-id')+",";         
+          }
+      });                      
+      // alert(ids);
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      
+      $.ajax({ url: '/ajax_msgs',
+        type: 'POST',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: {ids:ids},
+        success: function(response) {
+          $('div.submit').css({
+            "margin":"0px 0px 0px -120px",
+            "position":"absolute"
+        })
+          $('.show_product_list').html(response);
+        }
+      });
+
+   });
+
+  tinymce.init( 
+        force_br_newlines : true,            
+    });
+
+});
+</script>

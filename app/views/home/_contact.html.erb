@@ -1,0 +1,128 @@
+<%=content_for :css do %>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/contact.css">
+<% end %>
+
+
+
+<div class="header1 cid-r33fHMbSeh mbr-parallax-background">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 flex-center">
+                <img src="images/banner_t2.png" width="80%" alt="">
+            </div>
+            <div class="col-md-6 text-center">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- mainArea -->
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <h2 class="title"><%=t("contactus")%></h2>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="titleBox">
+                  <div class="mapBox">
+                      <h3><%=t("TAIHAN_address_main")%></h3>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.004890339125!2d121.52406325066801!3d25.06782338387772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9501aa95ddb%3A0xa02bda7b0eeeb98b!2zMTA0OTHlj7DljJfluILkuK3lsbHljYDmlrDnlJ_ljJfot6_kuInmrrU4OOW3tzQ06Jmf!5e0!3m2!1szh-TW!2stw!4v1553500577171" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <br />
+                <div class="titleBox">
+                  <div class="mapBox">
+                      <h3><%=t("TAIHAN_address")%></h3>
+  			               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.6169792946957!2d121.0205634161732!3d24.80856575344283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346836576562605f%3A0xcd42f1f4b5fc8051!2zMzAy5paw56u557ij56u55YyX5biC6IiI6ZqG6Lev5LiJ5q61NjHomZ8!5e0!3m2!1szh-TW!2stw!4v1550674511503" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 pt-5">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="infoBox">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="titleBox2">
+                                        <h2 class="title"><%=t("Online Consultation")%></h2>
+                                    </div>
+                                    <p class="infoItem"><%=t("Tel")%>：<span>+886 3 6685699</span></p>
+                                    <p class="infoItem"><%=t("Fax")%>：<span>+886 3 6682989</span></p>
+                                    <p class="infoItem"><%=t("Email")%>：<span>info@thmageq.com</span></p>
+                                    <p class="infoItem"><%=t("Address")%>：
+                                      <span style="margin: 0px 0px 20px;" ><%=t("TAIHAN_address_main")%></span>
+
+                                      <span><%=t("TAIHAN_address")%></span>
+                                      </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <%= form_tag("/contact_submit", method: "post") do %>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group has-danger">
+                                        <input type="text" class="form-control" name="name" placeholder="<%=t("name")%>">
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!--/span-->
+                                <div class="col-sm-4">
+                                    <div class="form-group has-danger">
+                                        <input type="email" class="form-control" name="email"  placeholder="<%=t("email")%>">
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!--/span-->
+                                <div class="col-sm-4">
+                                    <div class="form-group has-danger">
+                                        <input type="text" class="form-control" name="phone"  placeholder="<%=t("phone")%>">
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!--/span-->
+                                <div class="col-sm-12">
+                                    <div class="form-group has-danger">
+                                        <input type="text" class="form-control" name="title"  placeholder="<%=t("title")%>">
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!--/span-->
+                                <div class="col-sm-12">
+                                    <div class="form-group has-danger">
+                                        <!-- <label class="control-label">Message</label> -->
+                                        <textarea rows="8"  name="content"  placeholder="<%=t("Message")%>"></textarea>
+                                    </div>
+                                    <!-- /.form-group -->
+                                </div>
+                                <!--/span-->
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn bg-primary btn-block"><%=t("SEND")%></button>
+                                </div>
+                                <!--/span-->
+
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<style>
+@media screen and (max-width: 600px) {
+	div.mapBox h3{
+	   font-size:18px;
+	}
+
+}
+</style>

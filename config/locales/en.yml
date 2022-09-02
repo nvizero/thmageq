@@ -1,0 +1,114 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  TAIHAN:  © TAI HAN ENTERPRISE CO., LTD
+  companyCopyright: Copyright © TAI HAN EQUIPMENT ENTERPRISE CO., LTD
+  TAIHAN2: TAI HAN ENTERPRISE CO., LTD
+  TAIHAN_address: No.61, Sec. 3, Xinglong Rd., Zhubei City, Hsinchu County, Taiwan
+  TAIHAN_address_main: No.44, Ln. 88, Sec. 3, Xinsheng N. Rd., Zhongshan Dist., Taipei City 104, Taiwan
+  TAIHAN_address1: No.61, Sec. 3, Xinglong Rd., Zhubei City, Hsinchu County, Taiwan
+  TAIHAN_address_main1: No.44, Ln. 88, Sec. 3, Xinsheng N. Rd., Zhongshan Dist., Taipei City 104, Taiwan
+  html_title: Horizon Intellectual Property Office
+  hello_world: "Hello world!!"
+  key_word: "Enter keywords"
+  about: Company
+  service: Service
+  products: Products
+  products_3: Semiconductor
+  products_1: Magnetic material 
+  products_2: Magnet
+  products_4: Magnetic material
+  class_list: Online
+  solutions: Solutions
+  news: News
+  date: Date
+  title: Title
+  name: Name
+  submit: Submit
+  file_name: File Name
+  file_date: File Date
+  clean: Clean
+  female: Female
+  phone: Phone
+  address: Address
+  Address: Address
+  email: E-mail
+  birthday: Birthday
+  male: Male
+  gender: Gender
+  signup: Signup
+  download: Download
+  contactus: Contact Us
+  safety_advice: Safety Advice
+  When using permanent magnets: When using permanent magnets, please observe the following safety warnings.
+  language: Language
+  index: Index
+  search: Search
+  deadline: Deadline
+  number_of_applicants: "Number of applicants"
+  already_of_applicants: "Already of applicants"
+  user_content: Content
+  deadline_for_registration: Deadline for registration
+  SearchforT: Search for Tai Han products?
+  SearchforS: Search for Tai Han solutions?
+  WhyChooseUs: Why Choose Us?
+  MagnetApplication: Application Market of SiC and GaN
+  MagnetApplication2: Semiconductor products 
+  ApplicationMarketofMagneticSeparator1: Application Market of Magnetic Separator
+  ApplicationMarketofMagneticSeparator2: Application Market of SiC and GaN
+  OurMagneticSeparators: Our Magnetic Separators are also especially used for the protection of Machinery such as Crusher, Press Mill, Hammer Mill, Pulverizers, Conveyor Belts, Pipelines, Slurries, Cement Equipment like Vertical Roller Mill, Coal Mill, Cement Mill & Sugar Equipment like Shredder, Mill House, Cane Cutter, Pumps, Pipelines and Grinders, Feeders, Screw Conveyors, Bucket Elevators, Blenders, Mixers, Spouts, Ducts, Chutes and many other valuable machinery / processing equipment that you want to protect them from tramp iron damaging.
+  PurifyyourProducts: “Purify your Products and Protect your Machinery”
+  Online Consultation: Online Consultation
+  Tel: Tel
+  Fax: Fax
+  Email: Email
+  SEND: SEND
+  Message: Message
+  20 years experience and knowledge: 20 years experience and knowledge
+  Thi Han was built by a team: Thi Han was built by a team with more than 20 years experience and knowledge of managing magnetic materials/products as well as services.
+  Senior consultants: Senior consultants
+  The team includes senior consultants: The team includes senior consultants, supporting global customers with professionalism and technical Solutions from both academic and practicability perspectives.
+  Substantial technological core: Substantial technological core
+  Our substantial technological core: Our substantial technological core, professionals with innovations and extraordinary capacity of supply chain found the organization with platform and strength for continuous develop- ments.
+  Magnetic application techniques: Magnetic application techniques
+  Customized production: Customized production
+  While actively expanding our: While actively expanding our magnet-related product lines meeting wide ranges of global customers’ requirements, our R & D team has again demonstrated their expertise evolving the magnetic application techniques and successfully developed a series of metal separators with top quality and capacities, fitting the ever-increasing needs from various industries including plastic, recycling, food & beverage..... etc
+  Moreover, with vast experiences: Moreover, with vast experiences, our engineering division envisaged the custom-made requirements connecting the separator for different production line set-up of respective industry and the seamless collaboration with the counterparts of our customers is a must, ensuring right model to apply.
+  Agent: Agent
+  Magnetic Equipment: Magnetic Equipment
+  Coolant Filtration System: Coolant Filtration System
+  Suspended Plate Magnets: Suspended Plate Magnets
+  Metal Detectors: Metal Detectors
+  Munung And Minerals Industry: Munung And Minerals Industry
+  Food Industry: Food Industry
+  Magnetic Separator:  Magnetic Separator
+
+  frontend:
+    news: "NEWS"
+    intellectual: "Intellectual property"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"

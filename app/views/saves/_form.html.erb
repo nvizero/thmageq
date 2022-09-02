@@ -1,0 +1,75 @@
+<%= form_for(safe) do |f| %>
+  <% if safe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(safe.errors.count, "error") %> prohibited this safe from being saved:</h2>
+
+      <ul>
+      <% safe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title ,  "中文標題"%>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en,  "英文標題" %>
+    <%= f.text_field :title_en %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sort  ,"排序"%>
+    <%= f.number_field :sort %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>      
+    <% end %>
+  </div>
+
+   
+
+
+  <div class="form-group">
+    <%= f.label :content,"內容-中文" %>
+    <%= f.text_area :content ,id: "ckeditor", class: "ckeditor" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_en,"內容-英文" %>
+    <%= f.text_area :content_en ,id: "ckeditor1", class: "ckeditor1" %>
+  </div>
+
+
+
+   
+
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready( function(){
+
+  $('.ckeditor').each(function() {
+    CKEDITOR.replace($(this).attr('id'));
+  });
+
+  $('#ckeditor1').each(function() {
+    CKEDITOR.replace($(this).attr('id'));
+  });
+
+});
+</script>

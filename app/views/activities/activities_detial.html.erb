@@ -1,0 +1,83 @@
+
+
+
+<div class="table-responsive">
+  <table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>
+        姓名
+      </th>
+      <th>
+        姓別
+      </th>
+      <th>
+        電話
+      </th>
+      <th>
+        住址
+      </th>
+      <th>
+        E-MAIL
+      </th>
+      <% if !@activ.column_detail.nil?  %>
+        <% cdjs =JSON.parse( @activ.column_detail )%>
+        <% cdjs.each do |text_name,label_name| %>
+          <th>
+            <%=label_name%>
+          </th>
+        <% end %>
+      <% end %>
+
+      <td>
+        狀態
+      </td>
+      
+      <th>
+
+      </th>
+
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+  <%  @esult.each do |aa| %>
+    <tr>
+      <td><%=aa["name"]%></td>
+      <td><%=aa["sex"].to_i==1 ? "男" : "女" %></td>
+      <td><%=aa["phone"]%></td>
+      <td><%=aa["address"]%></td>
+      <td><%=aa["email"]%></td>
+      <% if !@activ.column_detail.nil?  %>
+        <% cdjs =JSON.parse( @activ.column_detail )%>
+        <% cdjs.each do |text_name,label_name| %>
+          <td>
+          <%=aa[text_name]%>
+          </td>
+        <% end %>
+      <% end %>
+
+      <td>
+        <%=aa["admin_content"]%>
+      </td>
+
+      <td>
+
+        <a  href="/activities_success?id=<%=aa["id"]%>&activity_id=<%=@activ.id%>" class="btn btn-primary btn-xs"
+            style="color:#FFF;" >核准報名</a>
+
+        <a  href="/activities_fail?id=<%=aa["id"]%>&activity_id=<%=@activ.id%>" class="btn btn-danger btn-xs"
+            style="color:#FFF;" >取消報名</a>
+
+      </td>
+
+    </tr>
+  <% end  %>
+  </tbody>
+</table>
+
+
+</div>

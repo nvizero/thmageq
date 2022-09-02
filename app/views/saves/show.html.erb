@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @safe.title %>
+</p>
+
+<p>
+  <strong>Title en:</strong>
+  <%= @safe.title_en %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @safe.img %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @safe.content %>
+</p>
+
+<p>
+  <strong>Content en:</strong>
+  <%= @safe.content_en %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @safe.sort %>
+</p>
+
+<%= link_to 'Edit', edit_safe_path(@safe) %> |
+<%= link_to 'Back', saves_path %>

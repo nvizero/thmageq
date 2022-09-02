@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">姓名</Data></Cell>
+        <Cell><Data ss:Type="String">姓別</Data></Cell>
+        <Cell><Data ss:Type="String">電話</Data></Cell>
+        <Cell><Data ss:Type="String">住址</Data></Cell>
+        <Cell><Data ss:Type="String">E-Mail</Data></Cell>
+
+        <%
+        if !@products.column_detail.nil?
+          cdjs = JSON.parse( @products.column_detail )
+          cdjs.each do |text_name,label_name|
+        %>
+          <Cell><Data ss:Type="String">
+              <%=label_name%>
+            </Data></Cell>
+        <% end
+        end
+        %>
+
+      </Row>
+    <% @esult.each do |row| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= row["id"] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= row["name"] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= (row["sex"]==1)? "男" : "女" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= row["phone"] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= row["address"] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= row["email"] %></Data></Cell>
+        <%
+        if !@products.column_detail.nil?
+            cdjs =JSON.parse( @products.column_detail )
+            cdjs.each do |text_name,label_name|
+        %>
+          <Cell>
+            <Data ss:Type="String">
+              <%=row[text_name]%>
+            </Data>
+          </Cell>
+        <%
+          end
+        end
+        %>
+
+
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

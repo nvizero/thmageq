@@ -1,0 +1,37 @@
+<%= form_for(@footer) do |f| %>
+
+  <% if @footer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@footer.errors.count, "error") %> prohibited this footer from being saved:</h2>
+
+      <ul>
+      <% @footer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.hidden_field :cate_id , :value =>28%>
+    <%= f.label :title_ch ,"中文標題" %>
+    <%= f.text_field :title_ch , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en ,"英文標題" %>
+    <%= f.text_field :title_en , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address_ch ,"中文住址"%>
+    <%= f.text_field :address_ch , class: "form-control"%>
+  </div>
+
+   
+
+  <div class="form-group">
+
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>

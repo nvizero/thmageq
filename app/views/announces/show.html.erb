@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announce.title %>
+</p>
+
+<p>
+  <strong>Title en:</strong>
+  <%= @announce.title_en %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @announce.img %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @announce.content %>
+</p>
+
+<p>
+  <strong>Content en:</strong>
+  <%= @announce.content_en %>
+</p>
+
+<%= link_to 'Edit', edit_announce_path(@announce) %> 
+<%= link_to 'Back', announces_path %>

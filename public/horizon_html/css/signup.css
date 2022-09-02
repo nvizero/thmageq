@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+form *{
+	font-size: 16px;
+}
+form p , label{
+	margin: 10px 10px 10px 0;
+}
+form label{
+	display: inline-block;
+	background: #c5e8fb;
+	width: 160px;
+	padding: 10px 20px;
+}
+form input[type='radio']{
+	margin: 0 0 0 10px;
+	vertical-align: middle;
+}
+
+form span{
+	display: inline-block;
+}
+form input[type='number']{
+	width: 70px;
+}
+
+form .pink{
+	background: #fbc5e5;
+}
+form .last *{
+	margin: 10px 50px;
+	padding: 3px 10px;
+}

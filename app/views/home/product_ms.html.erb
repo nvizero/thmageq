@@ -1,0 +1,69 @@
+<%=render '/home/comm/top'%>
+
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products.css">
+<% end  %>
+
+<!-- mainArea -->
+<div class="main_Area">
+    <section>
+        <div class="container">
+            <div class="titleBox">
+                <h2 class="title"> 
+
+                    <% if session[:locale] == "en" %>
+                        <%= @cate.name_en %> 
+                    <% elsif session[:locale] == "zh-TW" %>
+                        <%= @cate.name %> 
+                    <% end %>
+                    
+                </h2>
+                <p> </p>
+            </div>
+            <!-- ProBox -->
+            <div class="ProBox row">
+                <!-- ProItem 1 -->
+                <% @msgs.each do |msg| %>
+                <div class="col-sm-6 ProItem">
+                    <a href="/product?id=<%=msg.id%>">
+                        <div class="row">
+                            <div class="Img col-md-4">
+                                <%= image_tag msg.img.url ,{:style =>"width:100%"}  if !msg.img.nil? %>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="Txt">
+                                    <h3>
+                                        <% if session[:locale] == "en" %>
+                                            <%  anno_en_title = msg.title_en %>
+                                            <%= anno_en_title.split(" ").to_a[0..4].join(" ")%> 
+                                        <% elsif session[:locale] == "zh-TW" %>
+                                            <%= msg.title %>
+                                        <% end %>
+                                    </h3>
+                                    <p class="JQellipsis">
+                                        <% if session[:locale] == "en" %>
+                                            <%= get_str msg.content_en , 200 %>
+                                        <% elsif session[:locale] == "zh-TW" %>
+                                            <%= get_str msg.content , 100 %>
+                                        <% end %>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+                <!-- ProItem 1 end-->
+                 
+            </div>
+            <!-- ProBox end-->
+            
+        </div>
+    </section>
+    
+</div>
+
+

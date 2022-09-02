@@ -1,0 +1,85 @@
+<%= form_for(cate) do |f| %>
+  <% if cate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cate.errors.count, "error") %> prohibited this cate from being saved:</h2>
+
+      <ul>
+      <% cate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name ,"名稱" %>
+    <%= f.text_field :name, class: "form-control"  %>
+
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :name_en ,"英文名稱" %>
+    <%= f.text_field :name_en, class: "form-control"  %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :level ,"排序" %>
+    <%= f.text_field :level, class: "form-control"  %>
+  </div>
+
+
+    <%= f.hidden_field :parent_id, value: @p  %>
+    
+
+
+  <div class="form-group">
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>
+      <%= f.label :remove_img %>
+      <%= f.check_box :remove_img %>
+    <% end %>
+  </div>
+
+
+  <div class="form-group">
+
+    <h3 class="sub-header"><%= f.label :content,"產品內容-中文" %></h3>
+    <%= f.text_area :content ,id: "ckeditor", class: "tinymce" %>
+  </div>
+
+  <div class="form-group">
+    <h2 class="sub-header"><%= f.label :content_en,"產品內容-英文" %></h3>
+    <%= f.text_area :content_en ,id: "ckeditor1",class: "tinymce" %>
+  </div>
+
+
+
+  
+
+
+
+  <div class="form-group ref_cate_id" style="display:none;">
+    <%= f.label :ref_cate_id ,"" %>
+    <%= f.text_field :ref_cate_id, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+
+$(document).ready( function(){
+
+  tinymce.init();
+
+});
+</script>
+

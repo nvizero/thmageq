@@ -1,0 +1,18 @@
+ 
+<p>
+  <strong>Title:</strong>
+  <%= @msg.title %>
+</p>
+
+<p>
+  <strong>Cate:</strong>
+  <%= @msg.cate_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @msg.content %>
+</p>
+
+<%= link_to 'Edit', edit_msg_path(@msg) %> |
+<%= link_to 'Back', msgs_path %>

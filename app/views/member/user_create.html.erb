@@ -1,0 +1,25 @@
+
+<%= form_tag("/member_create", method: "post") do %>
+
+  <div class="form-group">
+    <label for="pwd">姓名:</label>
+    <input type="text" name="name" class="form-control" id="pwd">
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">EMAIL:</label>
+    <input type="email" name="email" class="form-control" >
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">密碼:</label>
+    <input type="text" name="password" class="form-control"  >
+  </div>
+
+  <div class="form-group">
+    <label for="pwd">確認密碼:</label>
+    <input type="text" name="password2" class="form-control"  >
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+<%  end %>

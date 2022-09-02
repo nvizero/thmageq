@@ -1,0 +1,103 @@
+<% if session[:locale] == "en" %>  
+  <% title( @footer.title_en   + " - "  ) %>
+<% elsif session[:locale] == "zh-TW" %>
+  <% title( @footer.title_ch      + " - "  ) %>
+<% end %>
+ 
+  
+<%= content_for  :description do %>    
+    <% if session[:locale] == "en" %>
+      <%= raw Rails::Html::FullSanitizer.new.sanitize(@footer.content_en.html_safe)%>
+    <% elsif session[:locale] == "zh-TW" %>
+      <%= raw Rails::Html::FullSanitizer.new.sanitize(@footer.content_ch.html_safe)%>
+    <% end %>
+<% end  %>
+ 
+
+
+<%= content_for  :css do %>    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/product-in.css">
+<% end  %>
+
+
+<%=render '/home/comm/top'%>
+
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <h2 class="title">                
+                <% if session[:locale] == "en" %>  
+                  <%= @footer.title_en %>
+                <% elsif session[:locale] == "zh-TW" %>
+                  <%= @footer.title_ch %>
+                <% end %>
+            </h2>
+
+        </div>
+        
+        <div class="row flex-row-reverse">
+            
+            <div class="col-lg-9">
+                <!-- Content -->
+                <section id="content">
+                    <%=image_tag @footer.img ,{:style=>"widht:100%;"}%> 
+                    <% if session[:locale] == "en" %>
+                      <%= raw @footer.content_en.html_safe%>
+                    <% elsif session[:locale] == "zh-TW" %>
+                      <%= raw @footer.content_ch.html_safe%>
+                    <% end %>
+
+                    <div class="row pt-5">                        
+                        <% @footer.msgs.each do |msg| %> 
+                        <div class="col-md-4 infoImg">
+                            <a href="/product?id=<%=msg.id%>">
+                                <div class="Txt">
+                                    <p> 
+                                        <h4>
+                                        <% if session[:locale] == "en" %>  
+                                          <%= msg.title_en %>   
+                                        <% elsif session[:locale] == "zh-TW" %>
+                                          <%= msg.title %>   
+                                        <% end %>
+                                        </h4>
+                                    </p>
+                                </div>
+                                <div class="Img">
+                                    <%= image_tag msg.img , {:style =>"width:100%"} %>                                       
+                                </div>
+                            </a>
+                        </div>
+                        <% end %>  
+                    </div>
+                </section>
+            </div>
+
+            <!-- 次選單 -->
+            <div class="col-lg-3 nopadding">
+                <!-- Sidebar -->
+                <section id="sidebar">
+                    <h3>Solutions </h3>
+                    <!-- 產品選單 -->
+                    <ul class="proList">
+                        <% Footer.where(:tel =>@footer.tel).each do |footer|%>
+                        <li>
+                            <a href="/solutions?id=<%=footer.id%>" class="proItem">   
+
+                                <% if session[:locale] == "en" %>  
+                                  <%= footer.title_en %>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                  <%= footer.title_ch %>
+                                <% end %>
+                            </a>
+                        </li>
+                        <% end %>                        
+                    </ul>
+                    <!-- 產品選單 end -->
+                </section>
+            </div>
+            <!-- 次選單 end -->
+             
+        </div>
+    </div>
+</div>

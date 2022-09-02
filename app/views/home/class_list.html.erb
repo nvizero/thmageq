@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title><%=t("html_title")%></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/template.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var le =$("nav ul.PC li").length -3;
+		setTimeout(function(){
+			$("nav ul.PC li:eq("+le+")").addClass("current");
+		},500);
+	});
+	</script>
+
+	<style type="text/css">
+	#main{
+		margin: 0 auto;
+		max-width: 1000px;
+		padding: 20px;
+	}
+	#main section{
+		float: left;
+		margin: 30px auto;
+		width: 25%;
+	}
+	#main section img{
+		width: 100%;
+	}
+	#main aside{
+		float: left;
+		position: relative;
+		margin: 30px 0;
+		margin-left: 5%;
+		width: 70%;
+		text-align: justify;
+	}
+	.title:before{
+		left: -15px;
+	}
+	#main aside ul{
+		margin: 20px 0 0;
+		width: 100%;
+		font-size: 16px;
+	}
+
+
+	#main aside li{
+		list-style-type: none;
+		background: #c5e8fb;
+		padding: 15px 0;
+	}
+	#main aside li:nth-child(even){
+		background: #FFF;
+	}
+	#main aside li span , #main aside li.th a{
+		display: inline-block;
+		width: 150px; max-width: 50%;
+		text-align: center;
+	}
+	#main aside li a{
+		display: inline-block;
+		width: calc(100% - 150px);
+	}
+	#main aside li:not(.th) span{
+		color: #ff6600;
+		vertical-align: top;
+	}
+
+	#main .page{
+		padding: 20px 0;
+		text-align: right;
+	}
+	#main .page a{
+		display: inline-block;
+		margin: 0 8px;
+	}
+
+
+	@media (max-width: 768px){
+	#main section{
+		display: none;
+		float: none;
+		width: 100%; max-width: 300px;
+	}
+	#main aside{
+		float: none;
+		margin: 0 auto 30px;
+		width: 90%;
+	}
+	}
+	</style>
+</head>
+
+<body>
+	<%= render "/ga"%>
+	<header>
+		<%= render '/home/comm/header_ch' %>
+	</header>
+
+	<div id="container">
+		<div id="sub">
+			<p><a href="/index"><%=t("index")%></a> - <a href="/about"><%=t(:signup)%></a></p>
+		</div>
+
+		<div id="main" class="clearfix">
+			<section><img src="img/4.jpg"></section>
+			<aside>
+				<p class="title clearfix"><span><%=t(:signup)%></span><span class="right">SIGN UP</span></p>
+
+				<ul>
+					<li class="th">
+						<span><%=t(:date)%></span>
+						<a><%=t(:title)%></a>
+
+					</li>
+
+					<% @acts.each do |atc|
+						t_exist = join_other_table_ok atc.other_table_name
+            	if !t_exist[0].nil?
+					%>
+							<li>
+									<span><%=atc.created_at.to_s.split(" ")[0]%></span><a href="/signup/<%=atc.id%>"><% if session[:locale] == "en" %><%=atc.title_en%><% elsif session[:locale] == "zh-TW" %><%=atc.title%><% end %></a>									
+							</li>
+					<%
+							end
+						end
+					%>
+
+
+
+				</ul>
+
+					<%= paginate @acts  %>
+
+			</aside>
+		</div>
+	</div>
+
+	<footer>
+
+		<% if session[:locale] == "en" %>
+			<%= render '/home/comm/footer_en' ,footer: @footer %>
+		<% elsif session[:locale] == "zh-TW" %>
+			<%= render '/home/comm/footer_ch' ,footer: @footer %>
+		<% end %>
+
+	</footer>
+</body>
+</html>
